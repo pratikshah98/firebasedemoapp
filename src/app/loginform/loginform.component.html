@@ -1,0 +1,91 @@
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form (ngSubmit)="addform(f)" #f="ngForm" class="login100-form validate-form" >
+
+					<span class="login100-form-title p-b-43">
+						Login to continue
+					</span>
+
+          <p style="font-size:20px;">Email</p>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<!-- <input class="input100" type="text"
+			name="email_id"  #emailid1="ngModel"  [(ngModel)]="emailid" > -->
+			<input class="input100" #email="ngModel" type="email" [(ngModel)]="user_email" name="user_email" placeholder="Email" [class.is-invalid]="email.invalid && email.touched" required
+			pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+			<span *ngIf="email.errors && (email.invalid || email.touched) && email.errors.pattern">Please enter a valid email address.</span>
+			<span *ngIf="email.errors && (email.invalid && email.touched) && email.errors.required">Email is required.</span>
+
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="label-input100">Email</span> -->
+					</div>
+
+          <p style="font-size:20px;">password</p>
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+            <!-- <input class="input100" type="password"
+            name="pass" #password1="ngModel" [(ngModel)]="password"
+			 > -->
+			 <input  class="input100" #password="ngModel" type="password" [(ngModel)]="user_password" name="user_password" placeholder="Password" [class.is-invalid]="password.invalid && password.touched" required>
+                    <!-- pattern="^(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"> -->
+                    <!-- <span *ngIf="password.errors && (password.invalid || password.touched) && password.errors.pattern">Please enter a minimum 8 to 10 character Password.</span> -->
+                    <span *ngIf="password.errors && (password.invalid && password.touched) && password.errors.required">Password is required.</span>
+			
+						<span class="focus-input100"></span>
+						<!-- <span class="label-input100">Password</span> -->
+					</div>
+
+           <!-- <div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a routerLink="" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>  -->
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" (click)="onSubmit()">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							<a routerLink="/signup"><b style="font-size: 20px;">SIGN UP</b></a>
+						
+                      <br>
+                       <a href=tel:7096499489>7096499489</a>
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a routetLink="" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a routetLink="" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('../../assets/images/bg-01.jpg');">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

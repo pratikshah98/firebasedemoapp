@@ -1,0 +1,120 @@
+
+<div style="width:60%; height: 40%; min-width:460px; min-height:812px; position: absolute;" >
+
+<h4 style="font-size: 25px; margin-top:10%; margin-left:24%;">EDIT PROFILE</h4>
+
+  <div class="limiter" style="width:50%; margin-left:14%; margin-top:40px;">
+  <!-- <div class="container-login100" style="width:1500px;"> -->
+    <form (ngSubmit)="addform(f)" #f="ngForm"  style="height:auto;" >
+
+      <p style="font-size:20px;">Email id</p>
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz" style="height:67px;">
+          <!-- <input class="input100" type="text"
+          name="user_email"  #emailid1="ngModel"  [(ngModel)]="users.user_email"> -->
+          <input  class="input100" #email="ngModel" type="email" [(ngModel)]="users.user_email" name="user_email" placeholder="Email" [class.is-invalid]="email.invalid && email.touched" required
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <span *ngIf="email.errors && (email.invalid || email.touched) && email.errors.pattern">Please enter a valid email address.</span>
+          <span *ngIf="email.errors && (email.invalid && email.touched) && email.errors.required">Email is required.</span>
+
+          <!-- <span class="focus-input100"></span> -->
+          <!-- <span class="label-input100">Email</span> -->
+        </div>
+
+        <p style="font-size:20px;">password</p>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:67px;">
+        <!--   <input class="input100" type="password"
+          name="pass" #password1="ngModel" [(ngModel)]="users.user_password"
+          > -->
+          <input  class="input100" #password="ngModel" type="password" [(ngModel)]="users.user_password" name="user_password" placeholder="Password" [class.is-invalid]="password.invalid && password.touched" required
+          pattern="^(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$">
+          <span *ngIf="password.errors && (password.invalid || password.touched) && password.errors.pattern">Please enter Password between 8 to 10 character..</span>
+          <span *ngIf="password.errors && (password.invalid && password.touched) && password.errors.required">Password is required.</span>
+
+          <!-- <span class="focus-input100"></span> -->
+          <!-- <span class="label-input100">Password</span> -->
+        </div>
+
+         <!-- <div class="flex-sb-m w-full p-t-3 p-b-32">
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Remember me
+            </label>
+          </div>
+
+          <div>
+            <a routerLink="" class="txt1">
+              Forgot Password?
+            </a>
+          </div>
+        </div>  -->
+
+        <p style="font-size:20px;">name</p>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:67px;">
+        <!--   <input class="input100" type="text"
+          name="user_name" #name1="ngModel" [(ngModel)]="users.user_name"
+        > -->
+
+        <input  class="input100" #name="ngModel" type="text" [(ngModel)]="users.user_name" name="user_name" placeholder="Full Name" [class.is-invalid]="name.invalid && name.touched" required
+        pattern="[a-zA-Z ]{3,}">
+        <span *ngIf="name.errors && (name.invalid || name.touched) && name.errors.pattern">Please enter a valid Name.</span>
+        <span *ngIf="name.errors && (name.invalid && name.touched) && name.errors.required">Name is required.</span>
+       <!-- <span class="focus-input100"></span> -->
+          <!-- <span class="label-input100">Password</span> -->
+        </div>
+
+
+      <p style="font-size:20px;">Gender</p>
+        <div class="form-group">
+
+          <input type="radio" name="gender" [(ngModel)]="users.user_gender" value="Male"  style="height:17px; width:17px;" >&nbsp;&nbsp; Male
+          &nbsp;&nbsp; <input type="radio" name="gender" [(ngModel)]="users.user_gender" value="Female" style="height:17px; width:17px; " >&nbsp;&nbsp; Female
+
+            </div>
+
+
+
+
+        <!-- <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:60px;">
+          <input class="input100" type="date"
+          name="birth_date" #birthdate1="ngModel" [(ngModel)]="birthdate"
+           > -->
+           <p style="font-size:20px;">Date</p>
+
+           <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:67px; ">
+
+           <input class="input100"  type="date"   name="birthdate"
+           [ngModel]="users.user_birth | date:'yyyy-MM-dd'" (ngModelChange)="users.user_birth = $event"
+           [value]="users.user_birth | date:'yyyy-MM-dd'" #BirthDate="ngModel" required >
+          <!-- <span class="focus-input100"></span> -->
+          <!-- <span class="label-input100">Password</span> -->
+        </div>
+
+
+        <p style="font-size:20px;">phoneno</p>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:67px;">
+<!--           <input class="input100" type="number"
+          name="phone_no" #phoneno1="ngModel" [(ngModel)]="users.user_phone"
+          > -->
+
+          <input class="input100"  #phone="ngModel" type="number" [(ngModel)]="users.user_phone" maxlength="10" mlength="10" name="user_phone" placeholder="PhoneNo" [class.is-invalid]="phone.invalid && phone.touched" required
+          pattern="^((\\+91-?)|0)?[0-9]{10}$">
+          <span *ngIf="phone.errors && (phone.invalid || phone.touched) && phone.errors.pattern">Please enter a valid phoneno.</span>
+          <span *ngIf="phone.errors && (phone.invalid && phone.touched) && phone.errors.required ">phoneNo is required.</span>
+         <!-- <span class="focus-input100"></span> -->
+          <!-- <span class="label-input100">Password</span> -->
+        </div>
+
+
+        <!-- <div class="wrap-input100 validate-input" data-validate="Password is required" style="height:60px;"> -->
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" type="submit" (click)=" onUpdate()" [disabled]="f.invalid"EE> 
+            EDIT
+          </button>
+        </div>
+        </form>
+        </div>
